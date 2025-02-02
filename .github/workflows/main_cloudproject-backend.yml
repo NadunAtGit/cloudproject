@@ -67,9 +67,9 @@ jobs:
         with:
           app-name: 'cloudproject-backend'  # Replace with your Azure Web App name
           slot-name: 'Production'  # You can use 'staging' if you want to deploy to a staging slot
-          package: ./node-app/backend  # Reference the downloaded artifact's backend folder
+          package: ./backend  # Path to the backend directory
 
       - name: Start Node.js server
         run: |
-          cd ./node-app/backend  # Ensure we are in the backend directory of the downloaded artifact
+          cd ./backend  # Ensure we are in the backend directory of the downloaded artifact
           npm start  # Start the Node.js server (runs node index.js)
