@@ -54,10 +54,6 @@ jobs:
         with:
           name: node-app  # Download the artifact uploaded in the build job
 
-      - name: Extract the artifact
-        run: |
-          unzip node-app.zip -d ./node-app  # Ensure the artifact is extracted correctly into a folder
-
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -71,9 +67,9 @@ jobs:
         with:
           app-name: 'cloudproject-backend'  # Replace with your Azure Web App name
           slot-name: 'Production'  # You can use 'staging' if you want to deploy to a staging slot
-          package: ./node-app/backend  # Reference the extracted artifact's backend folder
+          package: ./node-app/backend  # Reference the downloaded artifact's backend folder
 
       - name: Start Node.js server
         run: |
-          cd ./node-app/backend  # Ensure we are in the backend directory of the extracted artifact
+          cd ./node-app/backend  # Ensure we are in the backend directory of the downloaded artifact
           npm start  # Start the Node.js server (runs node index.js)
