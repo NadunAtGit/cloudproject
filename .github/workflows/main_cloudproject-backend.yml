@@ -22,12 +22,12 @@ jobs:
 
       - name: Navigate to backend directory and install dependencies
         run: |
-          cd frontend/backend  # Navigate to the backend directory (adjust path as needed)
+          cd backend  # Navigate to the backend directory (adjust path as needed)
           npm install  # Install the backend dependencies
 
       - name: Test and build (if applicable)
         run: |
-          cd frontend/backend  # Ensure you're in the backend directory
+          cd backend  # Ensure you're in the backend directory
           npm run test --if-present  # Run tests if defined (optional)
           npm run build --if-present  # Run build if defined (optional)
 
@@ -71,6 +71,6 @@ jobs:
       
       - name: Start Node.js server
         run: |
-          cd frontend/backend  # Ensure we are in the backend directory
+          cd backend  # Ensure we are in the backend directory
           npm start  # Start the Node.js server (runs node index.js)
 
