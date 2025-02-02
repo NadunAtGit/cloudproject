@@ -67,7 +67,7 @@ jobs:
         with:
           app-name: 'cloudproject-backend'  # Replace with your Azure Web App name
           slot-name: 'Production'  # You can use 'staging' if you want to deploy to a staging slot
-          package: ./backend  # Path to the backend directory
+          package: backend  # Path to the backend directory
 
       - name: Start Node.js server
         run: |
