@@ -53,6 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app  # Download the artifact uploaded in the build job
+          path: ./backend  # Ensure the artifact is downloaded to the correct path
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -67,7 +68,7 @@ jobs:
         with:
           app-name: 'cloudproject-backend'  # Replace with your Azure Web App name
           slot-name: 'Production'  # You can use 'staging' if you want to deploy to a staging slot
-          package: backend  # Path to the backend directory
+          package: ./backend  # Correct path to the backend directory
 
       - name: Start Node.js server
         run: |
